@@ -1,20 +1,21 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import './NotFound.scss';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import logo from "assets/images/logo1.png";
 
 const NotFound = () => {
   const navigate = useNavigate();
 
   const handleRedirect = () => {
-    navigate('/');
+    navigate("/");
   };
   return (
-    <div className='NotFound'>
-      <h1>
-        Looks like you got lost inside all these{' '}
-        <div className='colorful-text'> things.</div>
-      </h1>
-      <button className='button-lotus redirect-btn' onClick={handleRedirect}>
+    <div className="flex flex-col justify-center items-center text-white">
+      <img className="w-80 h-80 md:slide-right" src={logo} alt="logo" />
+      <h1 className="mt-20 text-xl italic text-center">Looks like you got lost inside all these things.</h1>
+      <button
+        className="button-lotus redirect-btn font-bold mb-32"
+        onClick={handleRedirect}
+      >
         Click here to go to Home
       </button>
     </div>

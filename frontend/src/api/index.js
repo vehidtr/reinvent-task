@@ -30,7 +30,6 @@ export const getSynonyms = async (word) => {
   try {
     const response = await api(`/synonyms/${word}`, "GET");
     if (response && response.data) {
-      console.log("RES", response);
       return response.data;
     } else return { error: "Something went wrong. Please try again!" };
   } catch (err) {
