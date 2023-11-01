@@ -71,7 +71,7 @@ export default function AddSynons() {
           placeholder="Add word"
           className="border rounded-md pl-2 w-full text-xl p-2 md:p-4"
           value={word || ""}
-          onChange={(e) => setWord(e.target.value)}
+          onChange={(e) => setWord(e.target.value?.toLocaleLowerCase())}
         />
         <div className="mt-5 text-2xl text-white font-medium">SYNONYMS:</div>
         <ul className="flex flex-col mt-5 gap-4 mb-10">
@@ -106,7 +106,7 @@ export default function AddSynons() {
             type="text"
             placeholder="Add synonym"
             value={synonym || ""}
-            onChange={(e) => setSynonym(e.target.value)}
+            onChange={(e) => setSynonym(e.target.value?.toLocaleLowerCase())}
             onKeyDown={(event) => {
               if (event.key === "Enter") {
                 handleAddSynonyms();
@@ -123,7 +123,7 @@ export default function AddSynons() {
           />
         </div>
         <button
-          className="bg-[coral] shadow-md rounded-md border-none px-3 py-3 text-white cursor-pointer mt-5 mb-4 font-semibold"
+          className="bg-[coral] shadow-md rounded-md border-none px-3 py-3 text-white cursor-pointer mt-5 mb-10 font-semibold"
           onClick={handleSubmitSynonyms}
         >
           {loading ? (
@@ -134,12 +134,12 @@ export default function AddSynons() {
           Submit
         </button>
         {successMsg ? (
-          <span className="mb-6 text-center text-white text-sm">
+          <span className="mb-6 -mt-10 text-center text-white font-bold text-sm italic">
             {successMsg}
           </span>
         ) : null}
         {errorMsg ? (
-          <span className="mb-6 text-center text-white text-sm">
+          <span className="mb-6 -mt-10  text-center text-red-600 font-bold text-sm italic">
             {errorMsg}
           </span>
         ) : null}

@@ -46,7 +46,7 @@ export default function Home() {
             placeholder="Find synonyms"
             className="border rounded-md p-2 md:p-4 pl-2 text-xl w-full outline-none"
             value={word || ""}
-            onChange={(e) => setWord(e.target.value)}
+            onChange={(e) => setWord(e.target.value?.toLocaleLowerCase())}
             onKeyDown={(event) => {
               if (event.key === "Enter") {
                 handleSearchSynonyms();
