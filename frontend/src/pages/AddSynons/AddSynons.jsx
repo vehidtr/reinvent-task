@@ -51,9 +51,9 @@ export default function AddSynons() {
 
   return (
     <>
-      <div className="flex flex-col relative justify-center items-center lg:shadow-md my-8 bg-[lightseagreen] rounded-xl">
+      <div className="flex flex-col relative justify-center items-center lg:shadow-md lg:my-8 bg-[lightseagreen] rounded-xl">
         <div
-          className="absolute z-10 flex justify-center items-center top-0 right-0 bg-white rounded-full px-5 py-5 mt-5 cursor-pointer ml-auto mr-5 rounded-full text-xl font-bold shadow-lg leading-5 slide-tr"
+          className="absolute z-10 flex justify-center items-center top-0 right-0 bg-white rounded-full px-5 py-5 mt-5 cursor-pointer ml-auto mr-5 text-xl font-bold shadow-lg leading-5 lg:slide-tr"
           onClick={() => navigate("/")}
         >
           <img
@@ -62,7 +62,7 @@ export default function AddSynons() {
             alt=""
           />
         </div>
-        <img className="w-80 h-80 slide-left" src={logo} alt="logo" />
+        <img className="w-80 h-80 lg:slide-left" src={logo} alt="logo" />
 
         <div className="flex flex-col gap-5 w-4/5">
           <input

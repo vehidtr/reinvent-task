@@ -4,6 +4,7 @@ import * as api from "api/index";
 import logo from "assets/images/logo1.png";
 import plusBtn from "assets/images/plus-icon.svg";
 import closeBtn from "assets/images/close-icon.svg";
+import searchIcon from "assets/images/search-icon.svg";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -21,14 +22,14 @@ export default function Home() {
 
   const handleClearWord = () => {
     setWord("");
-    setSynonymsList("")
+    setSynonymsList("");
   };
 
   return (
     <>
       <div className="flex flex-col relative justify-center items-center lg:shadow-md lg:my-8 bg-[lightseagreen] lg:rounded-xl">
         <div
-          className="absolute z-10 top-0 right-0 bg-white rounded-full p-[18px] mt-5 cursor-pointer ml-auto mr-5 rounded-full text-3xl text-orange-500 font-bold shadow-lg leading-5 slide-bl rotate-45"
+          className="absolute z-10 top-0 right-0 bg-white rounded-full p-[18px] mt-5 cursor-pointer ml-auto mr-5 text-3xl text-orange-500 font-bold shadow-lg leading-5 lg:slide-bl lg:rotate-45"
           onClick={() => navigate("/add")}
         >
           <img
@@ -37,13 +38,13 @@ export default function Home() {
             alt=""
           />
         </div>
-        <img className="w-80 h-80 slide-right" src={logo} alt="logo" />
-        <div className="flex gap-5 w-4/5 mx-auto">
+        <img className="w-80 h-80 lg:slide-right" src={logo} alt="logo" />
+        <div className="flex gap-5 w-11/12 lg:w-4/5 mx-auto">
           <div className="flex relative items-center w-full">
             <input
               type="text"
               placeholder="Find synonyms"
-              className="border rounded-md p-1 pl-2 w-full text-xl p-4 w-full outline-none"
+              className="border rounded-md p-4 pl-2 text-xl w-full outline-none"
               value={word || ""}
               onChange={(e) => setWord(e.target.value)}
               onKeyDown={(event) => {
@@ -61,18 +62,23 @@ export default function Home() {
               />
             ) : null}
           </div>
-          <input
-            type="button"
-            value="Search"
-            className="bg-[coral] rounded-md px-3 py-1 text-white w-32 cursor-pointer text-xl hover:rounded-[40px] shadow-md transition-border duration-300 ease-in-out"
+          <button
+            className="flex justify-center items-center bg-[coral] rounded-md px-3 py-1 text-white w-32 cursor-pointer text-xl hover:rounded-[40px] shadow-md transition-border duration-300 ease-in-out"
             onClick={handleSearchSynonyms}
-          />
+          >
+            <p className="hidden lg:block">Search</p>
+            <img
+              className="block lg:hidden w-6 h-6"
+              src={searchIcon}
+              alt="search icon"
+            />
+          </button>
         </div>
-        <div className="w-4/5 flex text-white text-xs mt-1 italic">
+        <div className="w-11/12 lg:w-4/5 flex text-white text-xs mt-1 italic">
           Try typing strong or active
         </div>
 
-        <div className="w-4/5  pb-10 mt-10">
+        <div className="w-11/12 lg:w-4/5  pb-10 mt-10">
           <div className="mt-5 text-2xl text-white font-medium text-center">
             SYNONYMS LIST
           </div>
