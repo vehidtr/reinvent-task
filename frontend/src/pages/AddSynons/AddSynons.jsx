@@ -51,9 +51,9 @@ export default function AddSynons() {
 
   return (
     <>
-      <div className="flex flex-col relative justify-center items-center lg:shadow-md lg:my-8 bg-[lightseagreen] rounded-xl">
+      <div className="flex flex-col relative justify-center items-center md:shadow-md md:my-8 bg-[lightseagreen] rounded-xl">
         <div
-          className="absolute z-10 flex justify-center items-center top-0 right-0 bg-white rounded-full px-5 py-5 mt-5 cursor-pointer ml-auto mr-5 text-xl font-bold shadow-lg leading-5 lg:slide-tr"
+          className="absolute z-10 flex justify-center items-center top-0 right-0 bg-white rounded-full px-5 py-5 mt-5 cursor-pointer ml-auto mr-5 text-xl font-bold shadow-lg leading-5 md:slide-tr"
           onClick={() => navigate("/")}
         >
           <img
@@ -62,13 +62,13 @@ export default function AddSynons() {
             alt=""
           />
         </div>
-        <img className="w-80 h-80 lg:slide-left" src={logo} alt="logo" />
+        <img className="w-80 h-80 md:slide-left" src={logo} alt="logo" />
 
-        <div className="flex flex-col gap-5 w-4/5">
+        <div className="flex flex-col gap-5 w-11/12 md:w-4/5">
           <input
             type="text"
             placeholder="Add word"
-            className="border rounded-md p-1 pl-2 w-full text-xl p-4"
+            className="border rounded-md pl-2 w-full text-xl p-2 md:p-4"
             value={word || ""}
             onChange={(e) => setWord(e.target.value)}
           />
@@ -111,7 +111,7 @@ export default function AddSynons() {
                   handleAddSynonyms();
                 }
               }}
-              className="border rounded-md p-3 pl-2 w-full"
+              className="border rounded-md p2-lg p-3 pl-2 w-full"
             />
 
             <input
@@ -122,7 +122,7 @@ export default function AddSynons() {
             />
           </div>
           <button
-            className="bg-[coral] shadow-md text-white rounded-md border-none px-3 py-3 text-white cursor-pointer mt-5 mb-4 border-t border-solid border-gray-200 font-semibold mt-10"
+            className="bg-[coral] shadow-md rounded-md border-none px-3 py-3 text-white cursor-pointer mt-5 mb-4 font-semibold"
             onClick={handleSubmitSynonyms}
           >
             {loading ? (
