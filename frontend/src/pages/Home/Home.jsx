@@ -102,7 +102,7 @@ export default function Home() {
               >
                 <div className="rounded-l-xl bg-[#f2f2f2] p-3 mr-4">
                   <img
-                    className="w-6 rotate-90 opacity-25"
+                    className="w-6 rotate-90 opacity-25 h-6"
                     src={synonymIcon}
                     alt="synonym"
                   />

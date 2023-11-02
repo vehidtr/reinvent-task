@@ -22,7 +22,7 @@ function App() {
                       fallback={
                         <div className="flex justify-center items-center w-full h-screen">
                           <Loading />
-                          <p>Loading...</p>
+                          <p className="ml-2">Loading...</p>
                         </div>
                       }
                     >
