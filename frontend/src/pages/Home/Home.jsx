@@ -6,19 +6,30 @@ import plusBtn from "assets/images/plus-icon.svg";
 import closeBtn from "assets/images/close-icon.svg";
 import searchIcon from "assets/images/search-icon.svg";
 import synonymIcon from "assets/images/synonym-icon.png";
+import Loading from "components/Loading/Loading";
 
 export default function Home() {
   const navigate = useNavigate();
   const [word, setWord] = useState("");
   const [synonymsList, setSynonymsList] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
   const handleSearchSynonyms = async () => {
     try {
+      setLoading(true);
       if (word) {
         const response = await api.getSynonyms(word || "");
         setSynonymsList(response?.synonyms || []);
       }
-    } catch (error) {}
+    } catch (error) {
+      setErrorMsg("Error finding synonyms");
+      setTimeout(() => {
+        setErrorMsg("");
+      }, 5000);
+    } finally {
+      setLoading(true);
+    }
   };
 
   const handleClearWord = () => {
@@ -63,7 +74,7 @@ export default function Home() {
           ) : null}
         </div>
         <button
-          className="flex justify-center items-center bg-[coral] rounded-md px-3 py-1 text-white w-32 cursor-pointer text-xl hover:rounded-[40px] shadow-md transition-border duration-300 ease-in-out"
+          className="flex justify-center items-center bg-[coral] rounded-md px-3 py-1 text-white w-32 cursor-pointer text-xl hover:rounded-[40px] shadow-md transition-border duration-500 ease-in-out"
           onClick={handleSearchSynonyms}
         >
           <p className="hidden md:block">Search</p>
@@ -105,6 +116,18 @@ export default function Home() {
             </div>
           )}
         </ul>
+        <div className="flex justify-center items-center w-full">
+          {loading ? (
+            <Loading color={"white"} />
+          ) : (
+            <div className="inline-block h-4 w-4 mr-4 -ml-6"></div>
+          )}
+          {errorMsg ? (
+            <span className="mb-6 -mt-10  text-center text-red-600 font-bold text-sm italic">
+              {errorMsg}
+            </span>
+          ) : null}
+        </div>
       </div>
     </>
   );
