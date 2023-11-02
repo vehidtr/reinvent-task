@@ -28,7 +28,7 @@ export default function Home() {
         setErrorMsg("");
       }, 5000);
     } finally {
-      setLoading(true);
+      setLoading(false);
     }
   };
 
